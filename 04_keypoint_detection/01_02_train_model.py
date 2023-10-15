@@ -9,11 +9,71 @@ from torchvision.transforms import functional as F
 
 import albumentations as A # Library for augmentations
 
-# https://github.com/pytorch/vision/tree/main/references/detection
 import transforms, utils, engine, train
 from utils import collate_fn
 from engine import train_one_epoch, evaluate
+import json
+import pandas as pd
 
+
+##-------Extract from train json file
+# os.chdir("../")
+
+# Create df table
+im_ext = ".jpg"
+
+imgs_path = r"D:\02_my_learnings\01_python_repo\02_torch_deep_learning\04_keypoint_detection\data_img"
+f = os.path.join(imgs_path, 'my_train_annotations.json')
+
+file = open(f, encoding="utf-8")
+json_data = json.load(file)
+file.close()
+# data = json_data['_via_img_metadata']
+data = json_data
+
+df = pd.DataFrame(columns=["image_id", "bbox", "bbox_labels", "keypoints"])
+index=0
+
+elements = list(data.keys())
+for el in elements:
+    cur_el = data[el]
+    file_name= cur_el['filename']
+    regions = cur_el['regions']
+    image_id = file_name.split(im_ext)[0]
+    
+    for region in regions:
+        label = region['region_attributes']['labels']
+        
+        if label=='kp_1':
+            head_x = region['shape_attributes']['cx']
+            head_y = region['shape_attributes']['cy']
+            head = [head_x, head_y, 1]
+            
+        elif label=='kp_2':
+            tail_x = region['shape_attributes']['cx']
+            tail_y = region['shape_attributes']['cy']
+            tail = [tail_x, tail_y, 1]
+            
+            
+        elif label == 'bbox':
+            x = region['shape_attributes']['x']
+            y = region['shape_attributes']['y']
+            width = region['shape_attributes']['width']
+            height = region['shape_attributes']['height']
+            
+            x1 = x
+            y1 = y
+            x2 = x1 + width
+            y2 = y1 + height
+            
+            bbox = [[x1, y1, x2, y2]]
+    
+    keypoints = [[head, tail]]
+    bbox_labels = ['Glue tube']
+    df.loc[index] = [image_id, bbox, bbox_labels, keypoints]
+    index += 1
+        
+unique_imgs = df.image_id.unique()
 
 
 def train_transform():
@@ -28,34 +88,33 @@ def train_transform():
     )
 
 
+
 class ClassDataset(Dataset):
-    def __init__(self, root, transform=None, demo=False):                
-        self.root = root
+    def __init__(self, imgs_path, df, unique_imgs, transform=None, demo=False):                
+        
         self.transform = transform
         self.demo = demo # Use demo=True if you need transformed and original images (for example, for visualization purposes)
-        self.imgs_files = sorted(os.listdir(os.path.join(root, "images")))
-        self.annotations_files = sorted(os.listdir(os.path.join(root, "annotations")))
-    
-    def __getitem__(self, idx):
-        img_path = os.path.join(self.root, "images", self.imgs_files[idx])
-        annotations_path = os.path.join(self.root, "annotations", self.annotations_files[idx])
+        self.unique_imgs = unique_imgs
+        self.df = df
+        self.imgs_path = os.path.join(imgs_path, "my_train")
         
-        # ##--for debug
-        # if self.imgs_files[idx].startswith('IMG_4838'):
+    def __getitem__(self, idx):
+        img_path = os.path.join(self.imgs_path, self.df.iloc[idx]['image_id'] + im_ext)
+
+        img_original = cv2.imread(img_path)
+        img_original = cv2.cvtColor(img_original, cv2.COLOR_BGR2RGB)      
+        
+        bboxes_original = self.df.iloc[idx]['bbox']
+        keypoints_original = self.df.iloc[idx]['keypoints']
+        
+        # All objects are glue tubes
+        bboxes_labels_original = self.df.iloc[idx]['bbox_labels'] 
+        
+        # ##=---- for debug
+        # if self.df.iloc[idx]['image_id'].startswith('IMG_4838'):
         #     print('debug')
         
-        img_original = cv2.imread(img_path)
-        img_original = cv2.cvtColor(img_original, cv2.COLOR_BGR2RGB)        
-        
-        with open(annotations_path) as f:
-            data = json.load(f)
-            bboxes_original = data['bboxes']
-            keypoints_original = data['keypoints']
-            
-            # All objects are glue tubes
-            bboxes_labels_original = ['Glue tube' for _ in bboxes_original]            
-
-        if self.transform:   
+        if self.transform:
             # Converting keypoints from [x,y,visibility]-format to [x, y]-format + Flattening nested list of keypoints            
             # For example, if we have the following list of keypoints for three objects (each object has two keypoints):
             # [[obj1_kp1, obj1_kp2], [obj2_kp1, obj2_kp2], [obj3_kp1, obj3_kp2]], where each keypoint is in [x, y]-format            
@@ -115,10 +174,11 @@ class ClassDataset(Dataset):
             return img, target
     
     def __len__(self):
-        return len(self.imgs_files)
-
-KEYPOINTS_FOLDER_TRAIN = r'D:\02_my_learnings\01_python_repo\02_torch_deep_learning\04_keypoint_detection\data_img\train'
-dataset = ClassDataset(KEYPOINTS_FOLDER_TRAIN, transform=train_transform(), demo=True)
+        return len(self.unique_imgs)
+    
+    
+# KEYPOINTS_FOLDER_TRAIN = r'D:\02_my_learnings\01_python_repo\02_torch_deep_learning\04_keypoint_detection\data_img\train'
+dataset = ClassDataset(imgs_path, df, unique_imgs, transform=train_transform(), demo=True)
 # dataset = ClassDataset(KEYPOINTS_FOLDER_TRAIN, transform=None, demo=True)
 data_loader = DataLoader(dataset, batch_size=1, shuffle=True, collate_fn=collate_fn)
 
@@ -126,8 +186,7 @@ iterator = iter(data_loader)
 batch = next(iterator)
 
 print("Original targets:\n", batch[3], "\n\n")
-print("Transformed targets:\n", batch[1])
-
+print("Transformed targets:\n", batch[1])    
 
 keypoints_classes_ids2names = {0: 'Head', 1: 'Tail'}
 
@@ -204,15 +263,15 @@ def get_model(num_keypoints, weights_path=None):
 
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 
-KEYPOINTS_FOLDER_TRAIN = r'D:\02_my_learnings\01_python_repo\02_torch_deep_learning\04_keypoint_detection\data_img\train'
+KEYPOINTS_FOLDER_TRAIN = r'D:\02_my_learnings\01_python_repo\02_torch_deep_learning\04_keypoint_detection\data_img\my_train'
 KEYPOINTS_FOLDER_TEST = r'D:\02_my_learnings\01_python_repo\02_torch_deep_learning\04_keypoint_detection\data_img\test'
 
-dataset_train = ClassDataset(KEYPOINTS_FOLDER_TRAIN, transform=train_transform(), demo=False)
+dataset_train = ClassDataset(imgs_path,df=df, unique_imgs=unique_imgs, transform=train_transform(), demo=False)
 # dataset_train = ClassDataset(KEYPOINTS_FOLDER_TRAIN, transform=None, demo=False)
-dataset_test = ClassDataset(KEYPOINTS_FOLDER_TEST, transform=None, demo=False)
+# dataset_test = ClassDataset(KEYPOINTS_FOLDER_TEST, transform=None, demo=False)
 
 data_loader_train = DataLoader(dataset_train, batch_size=1, shuffle=True, collate_fn=collate_fn)
-data_loader_test = DataLoader(dataset_test, batch_size=1, shuffle=False, collate_fn=collate_fn)
+# data_loader_test = DataLoader(dataset_test, batch_size=1, shuffle=False, collate_fn=collate_fn)
 
 model = get_model(num_keypoints = 2)
 model.to(device)
@@ -220,7 +279,7 @@ model.to(device)
 params = [p for p in model.parameters() if p.requires_grad]
 optimizer = torch.optim.SGD(params, lr=0.001, momentum=0.9, weight_decay=0.0005)
 lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.3)
-num_epochs = 5
+num_epochs = 50
 
 for epoch in range(num_epochs):
     print("-----Training started-----")
@@ -231,7 +290,7 @@ for epoch in range(num_epochs):
     
 # Save model weights after training
 model_path = r"D:\02_my_learnings\01_python_repo\02_torch_deep_learning\04_keypoint_detection\model"
-torch.save(model.state_dict(), os.path.join(model_path, 'keypointsrcnn_weights.pth'))
+torch.save(model.state_dict(), os.path.join(model_path, 'keypointsrcnn_weights_test.pth'))
 
 
 ####-----------------------------------------------------------

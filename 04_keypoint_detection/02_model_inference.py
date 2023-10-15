@@ -82,16 +82,17 @@ def get_model(num_keypoints, weights_path=None):
         
     return model
 
-WEIGHTS_FILE = r'D:/02_my_learnings/01_python_repo/02_torch_deep_learning/04_keypoint_detection/model/keypointsrcnn_weights.pth'
+WEIGHTS_FILE = r'D:/02_my_learnings/01_python_repo/02_torch_deep_learning/04_keypoint_detection/model/keypointsrcnn_weights_test.pth'
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 
 model = get_model(num_keypoints = 2, weights_path=WEIGHTS_FILE)
 model.to(device)
 
 #-----Test with a random_img
-im_path = 'D:/02_my_learnings/01_python_repo/02_torch_deep_learning/04_keypoint_detection/data_img/img_3.jpg'
+im_path = 'D:/02_my_learnings/01_python_repo/02_torch_deep_learning/04_keypoint_detection/data_img/'
+im_name = 'img_4.jpg'
 
-img = cv2.imread(im_path)
+img = cv2.imread(os.path.join(im_path, im_name))
 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 img_test = F.to_tensor(img).to(device)
 
@@ -108,7 +109,7 @@ print("Predictions: \n", output)
 image = (im_test[0].permute(1,2,0).detach().cpu().numpy() * 255).astype(np.uint8)
 scores = output[0]['scores'].detach().cpu().numpy()
 
-high_scores_idxs = np.where(scores > 0.5)[0].tolist() # Indexes of boxes with scores > 0.7
+high_scores_idxs = np.where(scores > 0.3)[0].tolist() # Indexes of boxes with scores > 0.7
 post_nms_idxs = torchvision.ops.nms(output[0]['boxes'][high_scores_idxs], output[0]['scores'][high_scores_idxs], 0.3).cpu().numpy() # Indexes of boxes left after applying NMS (iou_threshold=0.3)
 
 # Below, in output[0]['keypoints'][high_scores_idxs][post_nms_idxs] and output[0]['boxes'][high_scores_idxs][post_nms_idxs]
