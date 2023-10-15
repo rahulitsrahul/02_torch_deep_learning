@@ -7,17 +7,21 @@ import torch
 import os
 import matplotlib.pyplot as plt
 
-imageSize=[600, 600]
-imgPath = "data/test_imgs/2022-08-24 (38).png"
 
-num_of_classes = 1 + 4 # Background + other classes
-mask_color_code = {1:"Umpire", 2:"Batsman", 3:"Ball", 4:"Wicket"}
+os.chdir("../")
+
+imageSize=[600, 600]
+imgPath = r"03_mrcnn/data/test_Imgs/2022-08-24 (178).png"
+
+num_of_classes = 1 + 3 # Background + other classes
+mask_color_code = {1:"Umpire", 2:"Batsman", 3:"Fielder"}
 
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 model = torchvision.models.detection.maskrcnn_resnet50_fpn(pretrained=True) # Load an instance segmentation mdoel pre-trained on COCO
-in_features = model.roi_headers.box_predictor.cls_score.in_features # Get number of input features for the classifier
+in_features = model.roi_heads.box_predictor.cls_score.in_features # Get number of input features for the classifier
 model.roi_heads.box_predictor = FastRCNNPredictor(in_features, num_classes=num_of_classes) # replace the pre-trained head with a new one
-model.load_state_dict(torch.load("model/350.torch"))
+
+model.load_state_dict(torch.load(r"03_mrcnn/model/60.torch"))
 model.to(device) # Move the model to the right device
 model.eval()
 
@@ -35,10 +39,10 @@ im2 = im.copy()
 for i in range(len(pred[0]["masks"])):
     msk=pred[0]["masks"][i,0].detach().cpu().numpy()
     scr=pred[0]["scores"][i].detach().cpu().numpy()
-    label=pred[0]["labels"][i,0].detach().cpu().numpy()
+    label=pred[0]["labels"][i].detach().cpu().numpy()
     label=int(label)
     
-    if scr>0.8:
+    if scr>0.5:
         im2[:,:,0][msk>0.5] = random.randint(0, 255)
         im2[:,:,1][msk>0.5] = random.randint(0, 255)
         im2[:,:,2][msk>0.5] = random.randint(0, 255)
@@ -50,5 +54,5 @@ for i in range(len(pred[0]["masks"])):
 plt.imshow(im)
 plt.imshow(im2)
 plt.show()
-    
+
     

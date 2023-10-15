@@ -1,0 +1,1378 @@
+{
+    "2022-08-24 (7).png1739074": {
+        "filename": "2022-08-24 (7).png",
+        "size": 1739074,
+        "regions": [
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 428,
+                    "y": 412,
+                    "width": 81,
+                    "height": 165
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 358,
+                    "y": 572,
+                    "width": 105,
+                    "height": 193
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 431,
+                    "y": 293,
+                    "width": 89,
+                    "height": 127
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 556,
+                    "y": 281,
+                    "width": 94,
+                    "height": 114
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 687,
+                    "y": 276,
+                    "width": 113,
+                    "height": 136
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 699,
+                    "y": 515,
+                    "width": 89,
+                    "height": 209
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 545,
+                    "y": 667,
+                    "width": 117,
+                    "height": 206
+                },
+                "region_attributes": {
+                    "cricket": "umpire"
+                }
+            }
+        ],
+        "file_attributes": {}
+    },
+    "2022-08-24 (16).png1543025": {
+        "filename": "2022-08-24 (16).png",
+        "size": 1543025,
+        "regions": [
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 864,
+                    "y": 266,
+                    "width": 273,
+                    "height": 474
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 419,
+                    "y": 820,
+                    "width": 254,
+                    "height": 246
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1289,
+                    "y": 805,
+                    "width": 346,
+                    "height": 262
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            }
+        ],
+        "file_attributes": {}
+    },
+    "2022-08-24 (18).png1733770": {
+        "filename": "2022-08-24 (18).png",
+        "size": 1733770,
+        "regions": [
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 910,
+                    "y": 311,
+                    "width": 135,
+                    "height": 233
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1146,
+                    "y": 560,
+                    "width": 159,
+                    "height": 298
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 771,
+                    "y": 598,
+                    "width": 144,
+                    "height": 285
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1132,
+                    "y": 192,
+                    "width": 90,
+                    "height": 159
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1392,
+                    "y": 179,
+                    "width": 101,
+                    "height": 140
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1538,
+                    "y": 170,
+                    "width": 127,
+                    "height": 165
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 916,
+                    "y": 680,
+                    "width": 122,
+                    "height": 306
+                },
+                "region_attributes": {
+                    "cricket": "umpire"
+                }
+            }
+        ],
+        "file_attributes": {}
+    },
+    "2022-08-24 (19).png1773578": {
+        "filename": "2022-08-24 (19).png",
+        "size": 1773578,
+        "regions": [
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 943,
+                    "y": 333,
+                    "width": 149,
+                    "height": 325
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1235,
+                    "y": 689,
+                    "width": 214,
+                    "height": 382
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 547,
+                    "y": 691,
+                    "width": 371,
+                    "height": 289
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1246,
+                    "y": 116,
+                    "width": 173,
+                    "height": 227
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 897,
+                    "y": 864,
+                    "width": 203,
+                    "height": 209
+                },
+                "region_attributes": {
+                    "cricket": "umpire"
+                }
+            }
+        ],
+        "file_attributes": {}
+    },
+    "2022-08-24 (22).png1681831": {
+        "filename": "2022-08-24 (22).png",
+        "size": 1681831,
+        "regions": [
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 943,
+                    "y": 117,
+                    "width": 100,
+                    "height": 209
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1119,
+                    "y": 377,
+                    "width": 108,
+                    "height": 277
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 747,
+                    "y": 462,
+                    "width": 173,
+                    "height": 285
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 872,
+                    "y": 5,
+                    "width": 60,
+                    "height": 105
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 625,
+                    "y": 6,
+                    "width": 98,
+                    "height": 68
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 444,
+                    "y": 6,
+                    "width": 120,
+                    "height": 92
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 918,
+                    "y": 468,
+                    "width": 119,
+                    "height": 295
+                },
+                "region_attributes": {
+                    "cricket": "umpire"
+                }
+            }
+        ],
+        "file_attributes": {}
+    },
+    "2022-08-24 (36).png1898766": {
+        "filename": "2022-08-24 (36).png",
+        "size": 1898766,
+        "regions": [
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 589,
+                    "y": 563,
+                    "width": 147,
+                    "height": 311
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 885,
+                    "y": 300,
+                    "width": 103,
+                    "height": 235
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1053,
+                    "y": 587,
+                    "width": 140,
+                    "height": 298
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 954,
+                    "y": 369,
+                    "width": 119,
+                    "height": 133
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 855,
+                    "y": 666,
+                    "width": 168,
+                    "height": 317
+                },
+                "region_attributes": {
+                    "cricket": "umpire"
+                }
+            }
+        ],
+        "file_attributes": {}
+    },
+    "2022-08-24 (37).png1830938": {
+        "filename": "2022-08-24 (37).png",
+        "size": 1830938,
+        "regions": [
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 824,
+                    "y": 300,
+                    "width": 212,
+                    "height": 361
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 377,
+                    "y": 650,
+                    "width": 184,
+                    "height": 268
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1070,
+                    "y": 721,
+                    "width": 227,
+                    "height": 260
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1004,
+                    "y": 303,
+                    "width": 138,
+                    "height": 257
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 853,
+                    "y": 832,
+                    "width": 185,
+                    "height": 241
+                },
+                "region_attributes": {
+                    "cricket": "umpire"
+                }
+            }
+        ],
+        "file_attributes": {}
+    },
+    "2022-08-24 (40).png1357728": {
+        "filename": "2022-08-24 (40).png",
+        "size": 1357728,
+        "regions": [
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 785,
+                    "y": 246,
+                    "width": 103,
+                    "height": 193
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1002,
+                    "y": 452,
+                    "width": 120,
+                    "height": 247
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 447,
+                    "y": 40,
+                    "width": 124,
+                    "height": 160
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 745,
+                    "y": 84,
+                    "width": 128,
+                    "height": 152
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 679,
+                    "y": 518,
+                    "width": 252,
+                    "height": 124
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 912,
+                    "y": 560,
+                    "width": 108,
+                    "height": 281
+                },
+                "region_attributes": {
+                    "cricket": "umpire"
+                }
+            }
+        ],
+        "file_attributes": {}
+    },
+    "2022-08-24 (42).png1443914": {
+        "filename": "2022-08-24 (42).png",
+        "size": 1443914,
+        "regions": [
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 625,
+                    "y": 382,
+                    "width": 122,
+                    "height": 279
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 898,
+                    "y": 130,
+                    "width": 105,
+                    "height": 219
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1054,
+                    "y": 371,
+                    "width": 127,
+                    "height": 328
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 948,
+                    "y": 2,
+                    "width": 82,
+                    "height": 144
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 915,
+                    "y": 476,
+                    "width": 109,
+                    "height": 293
+                },
+                "region_attributes": {
+                    "cricket": "umpire"
+                }
+            }
+        ],
+        "file_attributes": {}
+    },
+    "2022-08-24 (52).png1616100": {
+        "filename": "2022-08-24 (52).png",
+        "size": 1616100,
+        "regions": [
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 761,
+                    "y": 369,
+                    "width": 111,
+                    "height": 330
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 851,
+                    "y": 0,
+                    "width": 81,
+                    "height": 122
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 902,
+                    "y": 120,
+                    "width": 117,
+                    "height": 201
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1289,
+                    "y": 390,
+                    "width": 135,
+                    "height": 281
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 886,
+                    "y": 468,
+                    "width": 138,
+                    "height": 314
+                },
+                "region_attributes": {
+                    "cricket": "umpire"
+                }
+            }
+        ],
+        "file_attributes": {}
+    },
+    "2022-08-24 (53).png1433285": {
+        "filename": "2022-08-24 (53).png",
+        "size": 1433285,
+        "regions": [
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 832,
+                    "y": 231,
+                    "width": 228,
+                    "height": 420
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1578,
+                    "y": 778,
+                    "width": 214,
+                    "height": 298
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 488,
+                    "y": 861,
+                    "width": 262,
+                    "height": 214
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 777,
+                    "y": 5,
+                    "width": 279,
+                    "height": 217
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            }
+        ],
+        "file_attributes": {}
+    },
+    "2022-08-24 (54).png1680254": {
+        "filename": "2022-08-24 (54).png",
+        "size": 1680254,
+        "regions": [
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 577,
+                    "y": 414,
+                    "width": 132,
+                    "height": 304
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 850,
+                    "y": 171,
+                    "width": 87,
+                    "height": 201
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 956,
+                    "y": 377,
+                    "width": 113,
+                    "height": 354
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 913,
+                    "y": 212,
+                    "width": 101,
+                    "height": 130
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 847,
+                    "y": 518,
+                    "width": 127,
+                    "height": 314
+                },
+                "region_attributes": {
+                    "cricket": "umpire"
+                }
+            }
+        ],
+        "file_attributes": {}
+    },
+    "2022-08-24 (55).png1413902": {
+        "filename": "2022-08-24 (55).png",
+        "size": 1413902,
+        "regions": [
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 427,
+                    "y": 575,
+                    "width": 200,
+                    "height": 414
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 796,
+                    "y": 298,
+                    "width": 152,
+                    "height": 239
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 904,
+                    "y": 306,
+                    "width": 146,
+                    "height": 189
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1002,
+                    "y": 607,
+                    "width": 193,
+                    "height": 365
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 804,
+                    "y": 739,
+                    "width": 178,
+                    "height": 239
+                },
+                "region_attributes": {
+                    "cricket": "umpire"
+                }
+            }
+        ],
+        "file_attributes": {}
+    },
+    "2022-08-24 (69).png1849130": {
+        "filename": "2022-08-24 (69).png",
+        "size": 1849130,
+        "regions": [
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 780,
+                    "y": 432,
+                    "width": 103,
+                    "height": 312
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 866,
+                    "y": 200,
+                    "width": 113,
+                    "height": 130
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 954,
+                    "y": 124,
+                    "width": 97,
+                    "height": 239
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1350,
+                    "y": 439,
+                    "width": 187,
+                    "height": 285
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 904,
+                    "y": 514,
+                    "width": 152,
+                    "height": 319
+                },
+                "region_attributes": {
+                    "cricket": "umpire"
+                }
+            }
+        ],
+        "file_attributes": {}
+    },
+    "2022-08-24 (74).png2128628": {
+        "filename": "2022-08-24 (74).png",
+        "size": 2128628,
+        "regions": [
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 552,
+                    "y": 490,
+                    "width": 143,
+                    "height": 358
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 842,
+                    "y": 222,
+                    "width": 119,
+                    "height": 235
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 940,
+                    "y": 266,
+                    "width": 125,
+                    "height": 160
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1015,
+                    "y": 533,
+                    "width": 155,
+                    "height": 295
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 848,
+                    "y": 599,
+                    "width": 160,
+                    "height": 377
+                },
+                "region_attributes": {
+                    "cricket": "umpire"
+                }
+            }
+        ],
+        "file_attributes": {}
+    },
+    "2022-08-24 (83).png1753949": {
+        "filename": "2022-08-24 (83).png",
+        "size": 1753949,
+        "regions": [
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 697,
+                    "y": 458,
+                    "width": 127,
+                    "height": 263
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 894,
+                    "y": 238,
+                    "width": 120,
+                    "height": 190
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1035,
+                    "y": 490,
+                    "width": 170,
+                    "height": 276
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 961,
+                    "y": 78,
+                    "width": 95,
+                    "height": 165
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 901,
+                    "y": 549,
+                    "width": 128,
+                    "height": 301
+                },
+                "region_attributes": {
+                    "cricket": "umpire"
+                }
+            }
+        ],
+        "file_attributes": {}
+    },
+    "2022-08-24 (84).png1943340": {
+        "filename": "2022-08-24 (84).png",
+        "size": 1943340,
+        "regions": [
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 571,
+                    "y": 488,
+                    "width": 187,
+                    "height": 371
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 897,
+                    "y": 176,
+                    "width": 190,
+                    "height": 255
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1056,
+                    "y": 465,
+                    "width": 279,
+                    "height": 412
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 883,
+                    "y": 614,
+                    "width": 179,
+                    "height": 379
+                },
+                "region_attributes": {
+                    "cricket": "umpire"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 956,
+                    "y": 5,
+                    "width": 149,
+                    "height": 160
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            }
+        ],
+        "file_attributes": {}
+    },
+    "2022-08-24 (97).png1938985": {
+        "filename": "2022-08-24 (97).png",
+        "size": 1938985,
+        "regions": [
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 570,
+                    "y": 484,
+                    "width": 185,
+                    "height": 368
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 891,
+                    "y": 224,
+                    "width": 165,
+                    "height": 233
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1043,
+                    "y": 547,
+                    "width": 205,
+                    "height": 312
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 973,
+                    "y": 8,
+                    "width": 141,
+                    "height": 201
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 891,
+                    "y": 617,
+                    "width": 155,
+                    "height": 368
+                },
+                "region_attributes": {
+                    "cricket": "umpire"
+                }
+            }
+        ],
+        "file_attributes": {}
+    },
+    "2022-08-24 (106).png1976531": {
+        "filename": "2022-08-24 (106).png",
+        "size": 1976531,
+        "regions": [
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 450,
+                    "y": 596,
+                    "width": 190,
+                    "height": 387
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 902,
+                    "y": 323,
+                    "width": 205,
+                    "height": 262
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1035,
+                    "y": 612,
+                    "width": 271,
+                    "height": 350
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 970,
+                    "y": 99,
+                    "width": 181,
+                    "height": 222
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 842,
+                    "y": 790,
+                    "width": 189,
+                    "height": 200
+                },
+                "region_attributes": {
+                    "cricket": "umpire"
+                }
+            }
+        ],
+        "file_attributes": {}
+    },
+    "2022-08-24 (112).png1434990": {
+        "filename": "2022-08-24 (112).png",
+        "size": 1434990,
+        "regions": [
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 841,
+                    "y": 47,
+                    "width": 190,
+                    "height": 247
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 772,
+                    "y": 744,
+                    "width": 171,
+                    "height": 239
+                },
+                "region_attributes": {
+                    "cricket": "zimbabwe"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 870,
+                    "y": 322,
+                    "width": 203,
+                    "height": 342
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            },
+            {
+                "shape_attributes": {
+                    "name": "rect",
+                    "x": 1489,
+                    "y": 763,
+                    "width": 206,
+                    "height": 224
+                },
+                "region_attributes": {
+                    "cricket": "india"
+                }
+            }
+        ],
+        "file_attributes": {}
+    }
+}

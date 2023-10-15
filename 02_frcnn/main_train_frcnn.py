@@ -4,26 +4,31 @@ import os
 
 import random
 from PIL import Image, ImageDraw
-from collections import Counterimport 
+from collections import Counter
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 
 import torch
 import torchvision
-from torchvision import transfroms as T
+from torchvision import transforms as T
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 
 import json
 import os
 
+# os.chdir("../")
+
 # Create df table
-imgs_path = "data_img"
-f = os.path.join(imgs_path, 'annotations.json')
+im_ext = ".png"
+
+imgs_path = r"02_frcnn\data_img"
+f = os.path.join(imgs_path, 'annotations_ind_vs_zim.json')
 
 file = open(f, encoding="utf-8")
 json_data = json.load(file)
 file.close()
-data = json_data['_via_img_metadata']
+# data = json_data['_via_img_metadata']
+data = json_data
 
 df = pd.DataFrame(columns=["image_id", "x1", "y1", "x2", "y2", "bbox_id"])
 index=0
@@ -35,26 +40,23 @@ for el in elements:
     regions = cur_el['regions']
     
     for region in regions:
-        label = region['region_attributes']['label']
+        label = region['region_attributes']['cricket']
         x = region['shape_attributes']['x']
         y = region['shape_attributes']['y']
         width = region['shape_attributes']['width']
         height = region['shape_attributes']['height']
-        
-        if(label == 'sentence'):
-            label_value = 100
-            id_val = 4
-        elif(label == 'topic'):
+  
+        if(label == 'india'):
             label_value = 64
             id_val = 3
-        elif(label =='header'):
+        elif(label =='zimbabwe'):
             label_value = 128
             id_val = 2
-        elif(label == 'content'):
+        elif(label == 'umpire'):
             label_value = 255
             id_val = 1
             
-        image_id = file_name.split('.jpg')[0]
+        image_id = file_name.split(im_ext)[0]
         x1 = x
         y1 = y
         x2 = x1 + width
@@ -78,27 +80,27 @@ class CustDat(torch.utils.data.Dataset):
         image_name = self.unique_imgs[self.indices[idx]]
         boxes = self.df[self.df.image_id == image_name].values[:, 1:-1].astype('float')
         bbox_labels = self.df[self.df.image_id == image_name].values[:, -1].astype('int64')
-        img = Image.open('data_img/train/' + image_name + '.jpg').convert("RGB")
+        img = Image.open('02_frcnn/data_img/train/' + image_name + im_ext).convert("RGB")
         labels = torch.from_numpy(bbox_labels)
         target = {}
         target['boxes'] = torch.tensor(boxes)
         target['labels'] = labels
         return T.ToTensor()(img), target
     
-    train_inds, val_inds = train_test_split(range(unique_imgs.shape[0]), test_size=0.1)
+train_inds, val_inds = train_test_split(range(unique_imgs.shape[0]), test_size=0.1)
     
 def custom_collate(data):
     return data
 
 train_dl = torch.utils.data.DataLoader(CustDat(df, unique_imgs, train_inds),
-                                        batch_size=4,
+                                        batch_size=2,
                                         shuffle=True,
                                         collate_fn = custom_collate,
                                         pin_memory = True if torch.cuda.is_available() else False
                                         )
 
 val_dl = torch.utils.data.DataLoader(CustDat(df, unique_imgs, train_inds),
-                                        batch_size=4,
+                                        batch_size=2,
                                         shuffle=True,
                                         collate_fn = custom_collate,
                                         pin_memory = True if torch.cuda.is_available() else False
@@ -160,16 +162,16 @@ draw = ImageDraw.Draw(vsample)
 # for box in boxes:
 for box in pred_bbox:
     draw.rectangle(list(box), fill=None, outline='red')
-vsample.shaoe()
+vsample.show()
 
 for box in boxes:
     draw.rectangle(list(box), fill=None, outline='red')
-vsample.shaoe()
+vsample.show()
 
 
 ##----------------------------------TEST on Unseen DATA----------------------------##
-image_name = "Device type mismatch page 0"
-img = Image.open('data_img/test/' + image_name + '.jpg').convert('RGB')
+image_name = "2022-08-24 (342)"
+img = Image.open('02_frcnn/data_img/test/' + image_name + im_ext).convert('RGB')
 im = T.ToTensor()(img)
 
 

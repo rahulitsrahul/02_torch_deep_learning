@@ -9,6 +9,8 @@ import os
 import matplotlib.pyplot as plt
 import copy
 
+os.chdir("../")
+
 batchSize = 2
 imageSize=[600, 600]
 num_of_classes = 1 + 3 # Background + other classes
@@ -16,10 +18,12 @@ device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cp
 mask_color_code = {"Umpire": 83, "Batsman": 133, "Bowler": 42, "Fielder": 219, "Keeper":192 }
 mask_color_code_unique = np.array(list(mask_color_code.values()))
 
-color_code_mask = mask_color_code = {83:1, 133:2, 42:3, 219:3, 192:3} # mapping of class values into uniform lables, 1-> Umpire, 2-> India, 3-> Zimbabwe
+color_code_mask = {83:1, 133:2, 42:3, 219:3, 192:3} # mapping of class values into uniform lables, 1-> Umpire, 2-> India, 3-> Zimbabwe
 
-train_imgs_path = r"03_mrcnn\\data\\train_imgs"
-train_masks_path = r"03_mrcnn\\data\\train_masks"
+
+
+train_imgs_path = r"03_mrcnn/data/train_imgs"
+train_masks_path = r"03_mrcnn/data/train_masks"
 
 train_imgs = os.listdir(train_imgs_path)
 img_ids = [(img.split(".png"))[0] for img in train_imgs]
