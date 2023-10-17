@@ -68,11 +68,10 @@ for el in elements:
             
             bbox = [[x1, y1, x2, y2]]
     
-    toss = np.random.randint(2)
-    if toss == 1:
-        keypoints = [[head, tail]]
-    else:
-        keypoints =[[tail, head]]
+    
+    mid_point = [round((head[0] + tail[0])/2), round((head[1] + tail[1])/2), 1]
+    # keypoints = [[head, mid_point, tail]]
+    keypoints = [[head for _ in range(28)]]
     
     bbox_labels = ['Glue tube']
     df.loc[index] = [image_id, bbox, bbox_labels, keypoints]
@@ -137,7 +136,8 @@ class ClassDataset(Dataset):
             # [obj1_kp1, obj1_kp2, obj2_kp1, obj2_kp2, obj3_kp1, obj3_kp2], where each keypoint is in [x, y]-format
             # Then we need to convert it to the following list:
             # [[obj1_kp1, obj1_kp2], [obj2_kp1, obj2_kp2], [obj3_kp1, obj3_kp2]]
-            keypoints_transformed_unflattened = np.reshape(np.array(transformed['keypoints']), (-1,2,2)).tolist()
+            len_keypoints = len(np.array(transformed['keypoints']))
+            keypoints_transformed_unflattened = np.reshape(np.array(transformed['keypoints']), (-1,len_keypoints,2)).tolist()
 
             # Converting transformed keypoints from [x, y]-format to [x,y,visibility]-format by appending original visibilities to transformed coordinates of keypoints
             keypoints = []
@@ -193,7 +193,7 @@ batch = next(iterator)
 print("Original targets:\n", batch[3], "\n\n")
 print("Transformed targets:\n", batch[1])    
 
-keypoints_classes_ids2names = {0: 'Head', 1: 'Tail'}
+keypoints_classes_ids2names = {0: 'Head', 1: 'Mid', 2: 'Tail'}
 
 def visualize(image, bboxes, keypoints, image_original=None, bboxes_original=None, keypoints_original=None):
     fontsize = 18
@@ -206,7 +206,7 @@ def visualize(image, bboxes, keypoints, image_original=None, bboxes_original=Non
     for kps in keypoints:
         for idx, kp in enumerate(kps):
             image = cv2.circle(image.copy(), tuple(kp), 5, (255,0,0), 10)
-            image = cv2.putText(image.copy(), " " + keypoints_classes_ids2names[idx], tuple(kp), cv2.FONT_HERSHEY_SIMPLEX, 2, (255,0,0), 3, cv2.LINE_AA)
+            #image = cv2.putText(image.copy(), " " + keypoints_classes_ids2names[idx], tuple(kp), cv2.FONT_HERSHEY_SIMPLEX, 2, (255,0,0), 3, cv2.LINE_AA)
 
     if image_original is None and keypoints_original is None:
         plt.figure(figsize=(40,40))
@@ -221,7 +221,7 @@ def visualize(image, bboxes, keypoints, image_original=None, bboxes_original=Non
         for kps in keypoints_original:
             for idx, kp in enumerate(kps):
                 image_original = cv2.circle(image_original, tuple(kp), 5, (255,0,0), 10)
-                image_original = cv2.putText(image_original, " " + keypoints_classes_ids2names[idx], tuple(kp), cv2.FONT_HERSHEY_SIMPLEX, 2, (255,0,0), 3, cv2.LINE_AA)
+                #image_original = cv2.putText(image_original, " " + keypoints_classes_ids2names[idx], tuple(kp), cv2.FONT_HERSHEY_SIMPLEX, 2, (255,0,0), 3, cv2.LINE_AA)
 
         f, ax = plt.subplots(1, 2, figsize=(40, 20))
 
@@ -253,11 +253,15 @@ def get_model(num_keypoints, weights_path=None):
     
     anchor_generator = AnchorGenerator(sizes=(32, 64, 128, 256, 512), aspect_ratios=(0.25, 0.5, 0.75, 1.0, 2.0, 3.0, 4.0))
     model = torchvision.models.detection.keypointrcnn_resnet50_fpn(pretrained=True,
-                                                                   # pretrained_backbone=True,
-                                                                   # #num_keypoints=num_keypoints,
-                                                                   # num_classes = 2, # Background is the first class, object is the second class
-                                                                   # rpn_anchor_generator=anchor_generator
+                                                                    # pretrained_backbone=True,
+                                                                    # num_keypoints=num_keypoints,
+                                                                    # num_classes = 2, # Background is the first class, object is the second class
+                                                                    # rpn_anchor_generator=anchor_generator
                                                                    )
+    
+    in_channels = model.roi_heads.keypoint_predictor.kps_score_lowres.in_channels
+    model.roi_heads.keypoint_predictor.kps_score_lowres = torch.nn.ConvTranspose2d(in_channels, num_keypoints, 4, 2, 1)
+
 
     if weights_path:
         state_dict = torch.load(weights_path)
@@ -279,7 +283,7 @@ dataset_train = ClassDataset(imgs_path,df=df, unique_imgs=unique_imgs, transform
 data_loader_train = DataLoader(dataset_train, batch_size=1, shuffle=True, collate_fn=collate_fn)
 # data_loader_test = DataLoader(dataset_test, batch_size=1, shuffle=False, collate_fn=collate_fn)
 
-model = get_model(num_keypoints = 2)
+model = get_model(num_keypoints = 30) # Head, mid_point and Tail
 model.to(device)
 
 params = [p for p in model.parameters() if p.requires_grad]

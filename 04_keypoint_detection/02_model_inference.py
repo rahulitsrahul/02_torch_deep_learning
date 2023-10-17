@@ -70,11 +70,11 @@ def visualize(image, bboxes, keypoints, image_original=None, bboxes_original=Non
 def get_model(num_keypoints, weights_path=None):
     
     anchor_generator = AnchorGenerator(sizes=(32, 64, 128, 256, 512), aspect_ratios=(0.25, 0.5, 0.75, 1.0, 2.0, 3.0, 4.0))
-    model = torchvision.models.detection.keypointrcnn_resnet50_fpn(pretrained=True,
-                                                                   # pretrained_backbone=True,
-                                                                   # # num_keypoints=num_keypoints,
-                                                                   # num_classes = 2, # Background is the first class, object is the second class
-                                                                   # rpn_anchor_generator=anchor_generator
+    model = torchvision.models.detection.keypointrcnn_resnet50_fpn(pretrained=False,
+                                                                    pretrained_backbone=True,
+                                                                    num_keypoints=num_keypoints,
+                                                                    num_classes = 2, # Background is the first class, object is the second class
+                                                                    rpn_anchor_generator=anchor_generator
                                                                    )
 
     if weights_path:
@@ -86,7 +86,7 @@ def get_model(num_keypoints, weights_path=None):
 WEIGHTS_FILE = r'D:/02_my_learnings/01_python_repo/02_torch_deep_learning/04_keypoint_detection/model/keypointsrcnn_weights_test.pth'
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 
-model = get_model(num_keypoints = 2, weights_path=WEIGHTS_FILE)
+model = get_model(num_keypoints = 3, weights_path=WEIGHTS_FILE)
 model.to(device)
 
 #-----Test with a random_img
@@ -110,7 +110,7 @@ print("Predictions: \n", output)
 image = (im_test[0].permute(1,2,0).detach().cpu().numpy() * 255).astype(np.uint8)
 scores = output[0]['scores'].detach().cpu().numpy()
 
-high_scores_idxs = np.where(scores > 0.95)[0].tolist() # Indexes of boxes with scores > 0.7
+high_scores_idxs = np.where(scores > 0.7)[0].tolist() # Indexes of boxes with scores > 0.7
 post_nms_idxs = torchvision.ops.nms(output[0]['boxes'][high_scores_idxs], output[0]['scores'][high_scores_idxs], 0.3).cpu().numpy() # Indexes of boxes left after applying NMS (iou_threshold=0.3)
 
 # Below, in output[0]['keypoints'][high_scores_idxs][post_nms_idxs] and output[0]['boxes'][high_scores_idxs][post_nms_idxs]
