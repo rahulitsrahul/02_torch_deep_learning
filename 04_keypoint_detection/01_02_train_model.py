@@ -68,7 +68,12 @@ for el in elements:
             
             bbox = [[x1, y1, x2, y2]]
     
-    keypoints = [[head, tail]]
+    toss = np.random.randint(2)
+    if toss == 1:
+        keypoints = [[head, tail]]
+    else:
+        keypoints =[[tail, head]]
+    
     bbox_labels = ['Glue tube']
     df.loc[index] = [image_id, bbox, bbox_labels, keypoints]
     index += 1
@@ -247,11 +252,12 @@ visualize(image, bboxes, keypoints, image_original, bboxes_original, keypoints_o
 def get_model(num_keypoints, weights_path=None):
     
     anchor_generator = AnchorGenerator(sizes=(32, 64, 128, 256, 512), aspect_ratios=(0.25, 0.5, 0.75, 1.0, 2.0, 3.0, 4.0))
-    model = torchvision.models.detection.keypointrcnn_resnet50_fpn(pretrained=False,
-                                                                   pretrained_backbone=True,
-                                                                   num_keypoints=num_keypoints,
-                                                                   num_classes = 2, # Background is the first class, object is the second class
-                                                                   rpn_anchor_generator=anchor_generator)
+    model = torchvision.models.detection.keypointrcnn_resnet50_fpn(pretrained=True,
+                                                                   # pretrained_backbone=True,
+                                                                   # #num_keypoints=num_keypoints,
+                                                                   # num_classes = 2, # Background is the first class, object is the second class
+                                                                   # rpn_anchor_generator=anchor_generator
+                                                                   )
 
     if weights_path:
         state_dict = torch.load(weights_path)
@@ -279,7 +285,7 @@ model.to(device)
 params = [p for p in model.parameters() if p.requires_grad]
 optimizer = torch.optim.SGD(params, lr=0.001, momentum=0.9, weight_decay=0.0005)
 lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.3)
-num_epochs = 50
+num_epochs = 80
 
 for epoch in range(num_epochs):
     print("-----Training started-----")
