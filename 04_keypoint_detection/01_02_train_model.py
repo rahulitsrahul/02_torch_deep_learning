@@ -70,8 +70,15 @@ for el in elements:
     
     
     mid_point = [round((head[0] + tail[0])/2), round((head[1] + tail[1])/2), 1]
-    # keypoints = [[head, mid_point, tail]]
-    keypoints = [[head for _ in range(28)]]
+    keypoints = [[head, mid_point, tail]]
+    
+    pt_1 = np.array([head[0], head[1]])
+    pt_2 = np.array([tail[0], tail[1]])
+    num_points = 20
+    points = np.linspace(pt_1, pt_2, num_points)
+    rounded_points_with_1 = [point.round().astype(int).tolist() + [1] for point in points]
+    
+    keypoints = list([rounded_points_with_1])
     
     bbox_labels = ['Glue tube']
     df.loc[index] = [image_id, bbox, bbox_labels, keypoints]
@@ -211,6 +218,7 @@ def visualize(image, bboxes, keypoints, image_original=None, bboxes_original=Non
     if image_original is None and keypoints_original is None:
         plt.figure(figsize=(40,40))
         plt.imshow(image)
+        plt.show()
 
     else:
         for bbox in bboxes_original:
@@ -230,6 +238,7 @@ def visualize(image, bboxes, keypoints, image_original=None, bboxes_original=Non
 
         ax[1].imshow(image)
         ax[1].set_title('Transformed image', fontsize=fontsize)
+        plt.show()
         
 image = (batch[0][0].permute(1,2,0).numpy() * 255).astype(np.uint8)
 bboxes = batch[1][0]['boxes'].detach().cpu().numpy().astype(np.int32).tolist()
@@ -252,8 +261,8 @@ visualize(image, bboxes, keypoints, image_original, bboxes_original, keypoints_o
 def get_model(num_keypoints, weights_path=None):
     
     anchor_generator = AnchorGenerator(sizes=(32, 64, 128, 256, 512), aspect_ratios=(0.25, 0.5, 0.75, 1.0, 2.0, 3.0, 4.0))
-    model = torchvision.models.detection.keypointrcnn_resnet50_fpn(pretrained=True,
-                                                                    # pretrained_backbone=True,
+    model = torchvision.models.detection.keypointrcnn_resnet50_fpn(pretrained=False,
+                                                                    pretrained_backbone=True,
                                                                     # num_keypoints=num_keypoints,
                                                                     # num_classes = 2, # Background is the first class, object is the second class
                                                                     # rpn_anchor_generator=anchor_generator
