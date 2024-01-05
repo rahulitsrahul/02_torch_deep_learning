@@ -55,6 +55,11 @@ class train_model(object):
                 
             self.evaluate_model()
             print(f'Epoch {epochs}, loss: {epoch_loss}')
+            
+            # Save Model after every 5 epochs
+            if (epochs % 5) == 0:
+                model_name = f"model_weights/frcnn_model_epoch_{epochs}.pth"
+                torch.save(self.model.state_dict(), model_name)
     
     def evaluate_model(self):
         self.model.eval()
